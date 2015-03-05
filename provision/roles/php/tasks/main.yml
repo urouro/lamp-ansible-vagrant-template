@@ -1,0 +1,27 @@
+---
+- name: Install php packages
+  sudo: yes
+  yum: name={{ item }} state=latest
+  with_items:
+    - php54
+    - php54-devel
+    - php54-mbstring
+    - php54-mysql
+    - php54-xml
+    - php54-mcrypt
+
+- name: Setup php.ini
+  sudo: yes
+  template: src=php.ini.tpl dest=/etc/php.ini
+
+- name: Restart httpd
+  sudo: yes
+  service: name=httpd state=restarted enabled=yes
+
+- name: Install composer
+  sudo: yes
+  shell: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin
+
+- name: mv composer
+  sudo: yes
+  command: mv /usr/local/bin/composer.phar /usr/local/bin/composer

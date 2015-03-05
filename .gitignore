@@ -1,0 +1,29 @@
+### https://raw.github.com/github/gitignore/81a3d6b3468ec5368bf33c1ec78009e74e7b7ebd/Global/Vagrant.gitignore
+
+.vagrant/
+
+
+### https://raw.github.com/github/gitignore/81a3d6b3468ec5368bf33c1ec78009e74e7b7ebd/Global/OSX.gitignore
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+

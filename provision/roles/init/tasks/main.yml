@@ -1,0 +1,20 @@
+---
+- name: Install libselinux-python (for Ansible provisioning)
+  sudo: yes
+  yum: name=libselinux-python state=present
+
+- name: Install java (for Jenkins)
+  sudo: yes
+  yum: name=java-1.7.0-openjdk state=present
+
+- name: Enable epel repository
+  sudo: yes
+  yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+
+- name: Enable remi repository
+  sudo: yes
+  yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
+
+- name: Enable ius repository
+  sudo: yes
+  yum: name=http://dl.iuscommunity.org/pub/ius/stable/Redhat/6/x86_64/ius-release-1.0-11.ius.el6.noarch.rpm state=present
