@@ -1,12 +1,10 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.provider :virtualbox do |v|
-    v.name = "dev"
-  end
-  
+  guest_ip = "192.168.33.10"
+
   config.vm.box = "chef/centos-6.5"
-  config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.network :private_network, ip: guest_ip
   config.vm.synced_folder ".", "/var/www/html", type: "nfs"
 
   #
@@ -17,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.inventory_path = "provision/inventories/hosts"
     ansible.limit = "all"
     ansible.extra_vars = {
-      private_interface: "192.168.33.10",
+      private_interface: guest_ip,
       hostname: "dev"
     }
   end
